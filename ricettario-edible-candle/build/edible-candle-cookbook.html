@@ -1,0 +1,818 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>The Edible Candle Cookbook — Sample Interior</title><style>
+@font-face { font-family: 'Cormorant'; src: url('file:///home/user/miofiverr/assets/fonts/CormorantGaramond.ttf'); font-weight: 300 700; }
+@font-face { font-family: 'Cormorant'; src: url('file:///home/user/miofiverr/assets/fonts/CormorantGaramond-Italic.ttf'); font-style: italic; font-weight: 300 700; }
+@font-face { font-family: 'Jost'; src: url('file:///home/user/miofiverr/assets/fonts/Jost.ttf'); font-weight: 100 900; }
+@font-face { font-family: 'Vibes'; src: url('file:///home/user/miofiverr/assets/fonts/GreatVibes-Regular.ttf'); }
+
+@page { size: 8.125in 10.25in; margin: 0; }
+:root { --ink:#3B2418; --soft:#6B5446; --gold:#B8893B; --ember:#A8432A; --paper:#FFFCF6; --cream:#F6EEDF; --night:#2A1A12; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #888; }
+body { font-family: 'Jost', sans-serif; color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.page { width: 8.125in; height: 10.25in; position: relative; overflow: hidden; background: var(--paper);
+        page-break-after: always; break-after: page; }
+/* live area: bleed .125 on outer/top/bottom, gutter .875in, outer .75in */
+.page .live { position: absolute; top: .875in; bottom: 1in; }
+.page.recto .live { left: .875in; right: .875in; }
+.page.verso .live { left: .875in; right: .875in; }
+.recto .live { left: .875in !important; right: .875in !important; }
+
+.folio { position: absolute; bottom: .55in; font-size: 8.5pt; letter-spacing: .14em; color: var(--soft);
+          display: flex; gap: 10px; align-items: baseline; text-transform: uppercase; }
+.folio span { font-family: 'Cormorant'; font-weight: 600; font-size: 12pt; color: var(--ember); letter-spacing: 0; }
+.folio em { font-style: normal; }
+.folio.recto { right: .875in; flex-direction: row-reverse; }
+.folio.verso { left: .875in; }
+
+.orn { width: 1.9in; height: auto; display: block; margin: 8px auto 0; }
+.kicker { font-size: 8.5pt; letter-spacing: .28em; text-transform: uppercase; color: var(--ember); font-weight: 500; }
+.center { text-align: center; }
+h1, h2, h3 { font-family: 'Cormorant'; font-weight: 600; line-height: 1.02; }
+.pg-title { font-size: 40pt; text-align: center; margin-top: .3in; }
+.pg-title.left { text-align: left; margin: 6px 0 18px; font-size: 34pt; }
+
+/* title page */
+.title .live { display: flex; align-items: center; justify-content: center; text-align: center; }
+.tp-pre { font-family: 'Cormorant'; font-style: italic; font-size: 15pt; color: var(--soft); }
+.tp-art svg { width: 1.6in; height: 1.6in; margin: .2in auto .1in; display: block; }
+.tp h1 { font-size: 64pt; line-height: .92; letter-spacing: -.01em; }
+.tp h1 span { font-family: 'Vibes'; font-weight: 400; font-size: 66pt; color: var(--ember); display: block; margin-top: 6px; }
+.tp-sub { font-family: 'Cormorant'; font-size: 17pt; margin-top: 16px; line-height: 1.25; }
+.tp-author { margin-top: 1.1in; font-size: 11pt; letter-spacing: .4em; text-transform: uppercase; }
+
+/* copyright */
+.copyright .live { display: flex; flex-direction: column; justify-content: flex-end; }
+.copy p { font-size: 8.5pt; line-height: 1.55; color: var(--soft); margin-top: 10px; max-width: 4.6in; }
+.copy b { color: var(--ink); font-weight: 500; }
+.copy .sample { margin-top: 18px; font-style: italic; font-family: 'Cormorant'; font-size: 10pt; }
+
+/* toc */
+.toc, .ch-list { list-style: none; margin-top: .45in; }
+.toc li, .ch-list li { display: flex; align-items: baseline; gap: 10px; padding: 9px 0; }
+.toc li span { font-family: 'Cormorant'; font-size: 17pt; font-weight: 500; }
+.toc li i, .ch-list li i { flex: 1; border-bottom: 1px dotted #C9B9A3; transform: translateY(-4px); }
+.toc li b { font-family: 'Cormorant'; font-size: 16pt; color: var(--ember); font-weight: 600; }
+.toc-art svg { width: 1.2in; height: 1.2in; display: block; margin: .35in auto 0; }
+
+/* intro */
+.two-col { columns: 2; column-gap: .35in; margin-top: 10px; }
+.two-col p { font-family: 'Cormorant'; font-size: 13.2pt; line-height: 1.42; margin-bottom: 10px; text-align: justify; hyphens: auto; }
+.dropcap p:first-child::first-letter { float: left; font-size: 58pt; line-height: .8; padding: 4px 8px 0 0; color: var(--ember); font-weight: 600; }
+.sig { font-style: italic; text-align: left !important; }
+.sig span { font-family: 'Vibes'; font-size: 28pt; color: var(--ember); font-style: normal; display: inline-block; margin-top: 6px; }
+
+.intro-art { margin-top: 14px; background: var(--cream); border-radius: 8px; padding: 10px 0 8px; text-align: center; }
+.intro-art svg { height: 1.85in; width: auto; }
+.intro-art figcaption { font-family: 'Cormorant'; font-style: italic; font-size: 11pt; color: var(--soft); }
+/* tools */
+.tools { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
+.tools div { background: var(--cream); border-radius: 6px; padding: 20px 20px; }
+.tools h3, .rules h3 { font-size: 17pt; margin-bottom: 4px; }
+.tools p { font-size: 10.5pt; line-height: 1.5; color: var(--soft); }
+.rules { margin-top: .3in; border-top: 1px solid var(--gold); padding-top: 16px; }
+.rules ol { list-style: none; counter-reset: r; margin-top: 8px; }
+.rules li { counter-increment: r; position: relative; padding: 15px 0 15px 44px; font-size: 11pt; line-height: 1.5;
+             border-bottom: 1px solid #EDE3D3; }
+.rules li::before { content: counter(r); position: absolute; left: 0; top: 8px; font-family: 'Cormorant'; font-size: 24pt;
+                     font-weight: 600; color: var(--ember); }
+.rules b { font-weight: 600; }
+
+/* method */
+.lead { font-family: 'Cormorant'; font-size: 14pt; line-height: 1.4; font-style: italic; color: var(--soft); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: .25in 0 .3in; }
+.step { text-align: center; }
+.step-art svg { width: 1.15in; height: 1.15in; background: var(--cream); border-radius: 50%; padding: 8px; }
+.step span { display: block; font-family: 'Cormorant'; font-size: 13pt; color: var(--ember); font-weight: 600; margin-top: 6px; }
+.step h3 { font-size: 15pt; margin: 2px 0 4px; }
+.step p { font-size: 9.4pt; line-height: 1.45; color: var(--soft); }
+table { border-collapse: collapse; width: 100%; }
+.burn th { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; text-align: left; padding: 8px 10px;
+            background: var(--night); color: #F3E3C3; font-weight: 500; }
+.burn td { font-size: 10pt; padding: 11px 10px; border-bottom: 1px solid #E8DCCA; }
+.burn tr:nth-child(even) td { background: var(--cream); }
+.foot { font-size: 8pt; color: var(--soft); margin-top: 6px; font-style: italic; }
+
+/* chapter openers: full bleed dark */
+.chapter { background: var(--night); color: #F6EAD3; }
+.chapter .live { text-align: center; }
+.chapter::before { content: ''; position: absolute; inset: 0;
+   background: radial-gradient(circle at 50% 52%, rgba(244,162,59,.28), rgba(42,26,18,0) 45%); }
+.ch-num { margin-top: .2in; font-size: 9pt; letter-spacing: .4em; text-transform: uppercase; color: #E7C47A; }
+.ch-title { font-size: 50pt; margin-top: 14px; }
+.ch-blurb { font-family: 'Cormorant'; font-style: italic; font-size: 14pt; line-height: 1.4; max-width: 4.6in; margin: 16px auto 0; color: #E9D9BC; }
+.ch-art svg { width: 1.9in; height: 1.9in; margin: .25in auto 0; display: block; }
+.ch-list { margin: .2in auto 0; max-width: 4.6in; text-align: left; }
+.ch-list li { padding: 6px 0; }
+.ch-list li span { font-family: 'Cormorant'; font-size: 13.2pt; }
+.ch-list li i { border-color: rgba(231,196,122,.45); }
+.ch-list li b { font-family: 'Cormorant'; color: #E7C47A; font-size: 13pt; }
+
+/* recipe */
+.recipe .live { top: .75in; }
+.r-head { text-align: center; }
+.r-head h2 { font-size: 31pt; margin-top: 6px; }
+.r-head .orn { margin-top: 6px; }
+.r-art { margin: 8px -0.1in 0; height: 2.25in; background: var(--cream); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.r-art svg { height: 2.15in; width: auto; }
+.r-intro { font-family: 'Cormorant'; font-style: italic; font-size: 12.5pt; line-height: 1.38; text-align: center;
+            margin: 12px .15in 10px; color: var(--soft); }
+.meta { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }
+.meta div { text-align: center; padding: 7px 0; }
+.meta div + div { border-left: 1px solid #E5D6BC; }
+.meta b { display: block; font-size: 7pt; letter-spacing: .24em; text-transform: uppercase; color: var(--ember); font-weight: 500; }
+.meta i { font-style: normal; font-family: 'Cormorant'; font-size: 14pt; font-weight: 600; }
+.r-body { display: grid; grid-template-columns: 2.05in 1fr; gap: .28in; margin-top: 14px; }
+.r-body h3 { font-size: 17pt; margin-bottom: 6px; }
+.ing ul { list-style: none; }
+.ing li { font-size: 9.2pt; line-height: 1.38; padding: 3.5px 0 3.5px 12px; position: relative; border-bottom: 1px dotted #DCCDB5; }
+.ing li::before { content: ''; position: absolute; left: 0; top: 9.5px; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+.ing li.sub { font-family: 'Cormorant'; font-style: italic; font-size: 12pt; font-weight: 600; color: var(--ember); border: 0; padding: 8px 0 1px; }
+.ing li.sub::before { display: none; }
+.met ol { list-style: none; }
+.met li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; margin-bottom: 6px; }
+.met li span { font-family: 'Cormorant'; font-weight: 700; font-size: 15pt; color: var(--ember); line-height: 1; }
+.met li p { font-size: 9.2pt; line-height: 1.45; }
+.tip { margin-top: 10px; font-size: 8.9pt !important; background: var(--cream); border-left: 3px solid var(--gold); padding: 8px 12px; font-size: 8.6pt; line-height: 1.45; }
+.tip b { font-family: 'Cormorant'; font-style: italic; font-size: 12pt; color: var(--ember); }
+
+/* feature */
+.feature .live { display: flex; flex-direction: column; justify-content: center; }
+.feature-art { background: var(--cream); border-radius: 10px; padding: .25in; margin-bottom: .35in; }
+.feature-art svg { width: 100%; height: auto; }
+h2.feature { font-size: 32pt; margin-top: 8px; }
+.quote { font-family: 'Cormorant'; font-style: italic; font-size: 15pt; line-height: 1.4; color: var(--soft); max-width: 4.8in; margin: 16px auto 0; }
+
+/* conversions */
+.conv { display: grid; grid-template-columns: 1fr 1fr; gap: .45in .3in; margin-top: 6px; }
+.conv th { font-family: 'Cormorant'; font-size: 16pt; text-align: left; padding-bottom: 6px; border-bottom: 2px solid var(--gold); font-weight: 600; }
+.conv td { font-size: 10pt; padding: 10px 4px; border-bottom: 1px solid #EADFCD; }
+.conv td:last-child { text-align: right; color: var(--soft); }
+
+@media screen { .page { margin: 20px auto; box-shadow: 0 4px 30px rgba(0,0,0,.25); } }
+</style></head>
+<body><section class="page recto title"><div class="live">
+  <div class="tp">
+    <p class="tp-pre">Light it. Dip it. Devour it.</p>
+    <div class="tp-art"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
+  <rect x="65.0" y="90" width="70" height="100" rx="7" fill="#F6D98A" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="119.6" y="96" width="11.200000000000001" height="88" rx="4" fill="#E9BE5C" opacity=".55"/>
+  <rect x="72.0" y="100" width="4.2" height="60.0" rx="3" fill="#fff" opacity=".45"/>
+  
+  <ellipse cx="100" cy="94" rx="33.0" ry="7" fill="#E9BE5C" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M65.0,98 Q73.4,120 77.6,98
+          Q86.0,136 93.0,98
+          Q108.4,114 115.4,98
+          Q123.8,128 135.0,98" fill="#F6D98A" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-s" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-s" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="64.9" r="57.0" fill="url(#glow-s)"/>
+  <path d="M100,44 C114.364,61.1 115.96,74.4 100,82
+           C84.04,74.4 85.636,61.1 100,44 Z"
+        fill="url(#fl-s)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M100,61.1 C105.586,68.7 105.586,76.3 100,78.96000000000001
+           C94.414,76.3 94.414,68.7 100,61.1 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="100" y1="78.96000000000001" x2="100" y2="92" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+</svg></div>
+    <h1>The Edible<br>Candle<br><span>Cookbook</span></h1>
+    <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+    <p class="tp-sub">60 Butter, Chocolate &amp; Tallow Candles<br>to Light Up Every Table</p>
+    <p class="tp-author">Eleanor Hart</p>
+  </div></div></section><section class="page verso copyright"><div class="live">
+  <div class="copy">
+    <p><b>The Edible Candle Cookbook</b><br>60 Butter, Chocolate &amp; Tallow Candles to Light Up Every Table</p>
+    <p>Copyright © 2026 Eleanor Hart. All rights reserved.</p>
+    <p>No part of this publication may be reproduced, distributed or transmitted in any form or by any
+    means, including photocopying, recording or other electronic or mechanical methods, without the prior
+    written permission of the publisher, except for brief quotations in reviews.</p>
+    <p><b>Safety disclaimer.</b> Edible candles involve an open flame. Never leave a lit candle unattended,
+    keep it away from children, pets and flammable materials, and always place it on a heat-resistant
+    plate. Use only untreated, food-safe cotton wicks and remove the wick before eating. The author and
+    publisher accept no liability for injury or damage arising from the use of this book.</p>
+    <p>Paperback ISBN: 000-0-00000-000-0<br>Hardcover ISBN: 000-0-00000-000-0</p>
+    <p>Interior design &amp; formatting: Giuseppe Molinari<br>Illustrations: vector artwork</p>
+    <p>First edition</p>
+    <p class="sample">Sample interior · portfolio piece · fictional author</p>
+  </div></div></section><section class="page recto contents"><div class="live">
+  <h1 class="pg-title">Contents</h1><svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+  <ul class="toc"><li><span>Welcome to the Edible Candle Table</span><i></i><b>4</b></li><li><span>Before You Light: Tools & Safety</span><i></i><b>5</b></li><li><span>The Base Method in Four Steps</span><i></i><b>6</b></li><li><span>Savory Butter Candles</span><i></i><b>11</b></li><li><span>Sweet Dipping Candles</span><i></i><b>33</b></li><li><span>Cheese, Tallow & Holiday Candles</span><i></i><b>55</b></li><li><span>Boards, Breads & Pairings</span><i></i><b>77</b></li><li><span>Measurement Conversions</span><i></i><b>96</b></li><li><span>Index</span><i></i><b>98</b></li></ul>
+  <div class="toc-art"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
+  <rect x="65.0" y="90" width="70" height="100" rx="7" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="119.6" y="96" width="11.200000000000001" height="88" rx="4" fill="#E8D3AC" opacity=".55"/>
+  <rect x="72.0" y="100" width="4.2" height="60.0" rx="3" fill="#fff" opacity=".45"/>
+  
+  <ellipse cx="100" cy="94" rx="33.0" ry="7" fill="#E8D3AC" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M65.0,98 Q73.4,120 77.6,98
+          Q86.0,136 93.0,98
+          Q108.4,114 115.4,98
+          Q123.8,128 135.0,98" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-toc" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-toc" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="64.9" r="57.0" fill="url(#glow-toc)"/>
+  <path d="M100,44 C114.364,61.1 115.96,74.4 100,82
+           C84.04,74.4 85.636,61.1 100,44 Z"
+        fill="url(#fl-toc)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M100,61.1 C105.586,68.7 105.586,76.3 100,78.96000000000001
+           C94.414,76.3 94.414,68.7 100,61.1 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="100" y1="78.96000000000001" x2="100" y2="92" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+</svg></div>
+</div><div class="folio recto"><span>3</span><em>The Edible Candle Cookbook</em></div></section><section class="page verso intro"><div class="live">
+  <p class="kicker">Introduction</p>
+  <h1 class="pg-title left">Welcome to the<br>Edible Candle Table</h1>
+  <div class="two-col dropcap">
+    <p>There is a moment at every good dinner when the conversation slows and everyone reaches
+    for the bread. This book is about that moment, and about making it glow.</p>
+    <p>An edible candle is exactly what it sounds like: a candle shaped from butter, tallow,
+    cocoa butter or another food-grade fat, set around a food-safe wick. Lit at the table, it
+    melts into a warm, fragrant pool that becomes a dip. What starts as decoration ends as the
+    most talked-about course of the evening.</p>
+    <p>Edible candles are surprisingly simple. Most need fewer than six ingredients, a paper cup
+    for a mold and a few hours in the fridge. Once you know the base method on page 6, you can
+    flavor them for any season: herby and garlicky for a spring supper, smoky and spiced for a
+    winter roast, sweet and vanilla-scented for dessert.</p>
+    <p>Every recipe in these pages has been tested for flavor, for how cleanly it burns and for
+    how long it lasts on the table. You will find burn times, make-ahead notes and pairing ideas
+    alongside each one.</p>
+    <p class="sig">Light one tonight. You’ll see.<br><span>Eleanor</span></p>
+  </div>
+  <figure class="intro-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="190" ry="26" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="190" ry="26" fill="#F4EDE1" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="136.79999999999998" ry="15.6" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/><g transform="translate(70,236) rotate(-8)">
+  <path d="M0,0 C4,-26 70,-30 78,-4 C80,6 74,12 64,12 L10,12 C2,12 -2,6 0,0 Z" fill="#D9A15B" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M6,6 C14,-8 62,-10 72,2" fill="none" stroke="#F6E2BC" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M20,-10 l8,6 M36,-14 l8,6 M52,-12 l8,6" stroke="#3B2418" stroke-width="1.3" stroke-linecap="round"/></g><g transform="translate(385,238) rotate(6)">
+  <path d="M0,0 C4,-26 70,-30 78,-4 C80,6 74,12 64,12 L10,12 C2,12 -2,6 0,0 Z" fill="#D9A15B" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M6,6 C14,-8 62,-10 72,2" fill="none" stroke="#F6E2BC" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M20,-10 l8,6 M36,-14 l8,6 M52,-12 l8,6" stroke="#3B2418" stroke-width="1.3" stroke-linecap="round"/></g>
+  <rect x="200.0" y="100" width="120" height="150" rx="7" fill="#F6D98A" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="293.6" y="106" width="19.2" height="138" rx="4" fill="#E9BE5C" opacity=".55"/>
+  <rect x="212.0" y="110" width="7.199999999999999" height="90.0" rx="3" fill="#fff" opacity=".45"/>
+  <circle cx="215.4" cy="207.0" r="2.0" fill="#5E7B3E"/><circle cx="252.7" cy="238.5" r="1.6" fill="#5E7B3E"/><circle cx="231.2" cy="161.4" r="1.6" fill="#5E7B3E"/><circle cx="255.1" cy="191.2" r="1.8" fill="#5E7B3E"/><circle cx="273.9" cy="129.1" r="1.9" fill="#5E7B3E"/><circle cx="237.3" cy="195.1" r="1.9" fill="#5E7B3E"/><circle cx="303.0" cy="217.5" r="1.8" fill="#5E7B3E"/><circle cx="272.6" cy="229.8" r="1.9" fill="#5E7B3E"/><circle cx="282.8" cy="171.1" r="1.8" fill="#5E7B3E"/><circle cx="259.1" cy="197.3" r="2.1" fill="#5E7B3E"/><circle cx="260.3" cy="233.2" r="1.4" fill="#5E7B3E"/><circle cx="261.3" cy="147.9" r="1.1" fill="#5E7B3E"/><circle cx="293.5" cy="158.4" r="2.3" fill="#5E7B3E"/><circle cx="291.9" cy="200.7" r="1.1" fill="#5E7B3E"/><circle cx="309.0" cy="224.9" r="2.0" fill="#5E7B3E"/><circle cx="210.5" cy="179.3" r="1.8" fill="#5E7B3E"/><circle cx="214.7" cy="198.4" r="1.5" fill="#5E7B3E"/><circle cx="292.1" cy="204.9" r="1.8" fill="#5E7B3E"/><circle cx="238.0" cy="189.3" r="2.0" fill="#5E7B3E"/><circle cx="285.2" cy="161.9" r="1.3" fill="#5E7B3E"/><circle cx="209.2" cy="171.3" r="1.8" fill="#5E7B3E"/><circle cx="238.9" cy="163.0" r="1.4" fill="#5E7B3E"/><circle cx="251.0" cy="135.4" r="1.4" fill="#5E7B3E"/><circle cx="250.5" cy="149.2" r="1.8" fill="#5E7B3E"/><circle cx="280.8" cy="183.3" r="1.8" fill="#5E7B3E"/><circle cx="206.2" cy="206.4" r="1.5" fill="#5E7B3E"/><circle cx="298.7" cy="154.0" r="2.1" fill="#5E7B3E"/><circle cx="294.7" cy="228.5" r="1.9" fill="#5E7B3E"/><circle cx="214.5" cy="125.6" r="1.2" fill="#5E7B3E"/><circle cx="215.9" cy="170.1" r="1.6" fill="#5E7B3E"/><circle cx="251.6" cy="145.0" r="1.3" fill="#5E7B3E"/><circle cx="284.9" cy="230.2" r="1.7" fill="#5E7B3E"/><circle cx="308.5" cy="220.5" r="1.7" fill="#5E7B3E"/><circle cx="267.1" cy="155.9" r="2.3" fill="#5E7B3E"/><circle cx="302.4" cy="175.8" r="1.5" fill="#5E7B3E"/><circle cx="280.9" cy="135.7" r="2.0" fill="#5E7B3E"/><circle cx="236.9" cy="129.4" r="1.7" fill="#5E7B3E"/><circle cx="289.2" cy="122.9" r="1.7" fill="#5E7B3E"/>
+  <ellipse cx="260" cy="104" rx="58.0" ry="7" fill="#E9BE5C" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M200.0,108 Q214.4,130 221.6,108
+          Q236.0,146 248.0,108
+          Q274.4,124 286.4,108
+          Q300.8,138 320.0,108" fill="#F6D98A" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-gh" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-gh" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="260" cy="67.3" r="69.0" fill="url(#glow-gh)"/>
+  <path d="M260,42 C277.388,62.7 279.32,78.80000000000001 260,88
+           C240.68,78.80000000000001 242.612,62.7 260,42 Z"
+        fill="url(#fl-gh)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M260,62.7 C266.762,71.9 266.762,81.1 260,84.32
+           C253.238,81.1 253.238,71.9 260,62.7 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="260" y1="84.32" x2="260" y2="98" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<g transform="translate(150,230) rotate(-18)"><path d="M0,0 L0,-76" stroke="#3B2418" stroke-width="1.4" fill="none"/><g transform="translate(0,-8) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-13) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-22) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-27) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-36) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-41) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-50) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-55) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-64) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-69) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g></g><g transform="translate(372,232) rotate(22)"><path d="M0,0 L0,-62" stroke="#3B2418" stroke-width="1.4" fill="none"/><g transform="translate(0,-8) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-13) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-22) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-27) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-36) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-41) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-50) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-55) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g></g><circle cx="205" cy="252" r="9" fill="#F7F1E3" stroke="#3B2418" stroke-width="1.4"/><circle cx="320" cy="254" r="7" fill="#F7F1E3" stroke="#3B2418" stroke-width="1.4"/></svg><figcaption>The Garlic &amp; Herb Butter Candle, page 12</figcaption></figure>
+</div><div class="folio verso"><span>4</span><em>The Edible Candle Cookbook</em></div></section><section class="page recto safety"><div class="live">
+  <p class="kicker">Before You Light</p>
+  <h1 class="pg-title left">Tools &amp; Safety</h1>
+  <div class="tools">
+    <div><h3>Food-safe wicks</h3><p>Choose 100% unbleached cotton wicks with no wax coating,
+      dyes or metal core. Prime with olive oil before use.</p></div>
+    <div><h3>Simple molds</h3><p>Paper cups, short glasses, ramekins or silicone molds. Line
+      paper and glass with parchment for a clean release.</p></div>
+    <div><h3>A steady base</h3><p>Always serve on a rimmed, heat-resistant plate or board
+      that can catch the melting pool.</p></div>
+    <div><h3>Long matches</h3><p>A long match or lighter keeps hands clear of the soft
+      surface and lets you relight easily.</p></div>
+  </div>
+  <div class="rules">
+    <h3>The five golden rules</h3>
+    <ol>
+      <li><b>Never leave it alone.</b> A lit candle is supervised from first spark to last dip.</li>
+      <li><b>Trim to ¼ in.</b> A short wick gives a small, clean flame that melts rather than burns.</li>
+      <li><b>Blow out before you dip.</b> Or dip from the outer edge, away from the flame.</li>
+      <li><b>Discard the wick.</b> It is never eaten. Pull it out with tongs once cool.</li>
+      <li><b>Mind allergies.</b> Label nut and dairy candles when guests are sharing.</li>
+    </ol>
+  </div>
+</div><div class="folio recto"><span>5</span><em>The Edible Candle Cookbook</em></div></section><section class="page verso method"><div class="live">
+  <p class="kicker">Master this once</p>
+  <h1 class="pg-title left">The Base Method<br>in Four Steps</h1>
+  <p class="lead">Every candle in this book follows the same four steps. Learn them here and
+  each recipe becomes a simple change of flavor.</p>
+  <div class="steps"><div class="step"><div class="step-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><path d="M20,60 Q60,120 100,60 Z" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="#F6D98A"/><path d="M14,60 h92" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M80,20 L60,70" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="48" cy="74" r="3" fill="#5E7B3E"/><circle cx="66" cy="82" r="3" fill="#5E7B3E"/></svg></div><span>01</span><h3>Soften & flavor</h3><p>Beat room-temperature fat until smooth, then fold in herbs, spices or sweeteners.</p></div><div class="step"><div class="step-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="34" y="30" width="52" height="80" rx="4" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M60,10 V104" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44,10 h32" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="60" cy="104" r="4" fill="#3B2418"/></svg></div><span>02</span><h3>Set the wick</h3><p>Center a primed wick in the mold and hold it upright with a clothespin.</p></div><div class="step"><div class="step-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="34" y="30" width="52" height="80" rx="4" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="#F6D98A"/><g transform="translate(96,26)"><path d="M0,-14 V14 M-12,-7 L12,7 M-12,7 L12,-7" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span>03</span><h3>Pack & chill</h3><p>Fill in layers, tap out air pockets and chill until completely firm.</p></div><div class="step"><div class="step-art"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="38" y="52" width="44" height="58" rx="4" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="#F6D98A"/><path d="M60,52 V44" fill="none" stroke="#3B2418" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M60,20 C70,32 70,40 60,44 C50,40 50,32 60,20 Z" fill="#F4A23B" stroke="#3B2418" stroke-width="2"/></svg></div><span>04</span><h3>Unmold & light</h3><p>Release onto a plate, trim the wick and light 10 minutes before serving.</p></div></div>
+  <table class="burn">
+    <thead><tr><th>Base fat</th><th>Texture when set</th><th>Burn time*</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td>Butter</td><td>Soft, spreadable</td><td>45–60 min</td><td>Bread, crackers</td></tr>
+      <tr><td>Beef tallow</td><td>Firm, waxy</td><td>90+ min</td><td>Sourdough, roasts</td></tr>
+      <tr><td>Ghee</td><td>Firm, grainy</td><td>75–90 min</td><td>Flatbreads, naan</td></tr>
+      <tr><td>Cocoa butter</td><td>Hard, snappy</td><td>40–50 min</td><td>Fruit, cookies</td></tr>
+    </tbody>
+  </table>
+  <p class="foot">*Based on an 8 oz candle with a ¼ in wick at room temperature.</p>
+</div><div class="folio verso"><span>6</span><em>The Edible Candle Cookbook</em></div></section><section class="page recto chapter"><div class="live">
+    <div class="ch-num">Chapter 1</div>
+    <h1 class="ch-title">Savory Butter Candles</h1>
+    <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#E7C47A" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#E7C47A"/><circle cx="96" cy="10" r="2" fill="#E7C47A"/><circle cx="124" cy="10" r="2" fill="#E7C47A"/></svg>
+    <p class="ch-blurb">Garlic, herbs, cheese and spice, set around a wick and served with the warmest bread you can find. These are the candles that steal the dinner party.</p>
+    <div class="ch-art"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
+  <rect x="65.0" y="90" width="70" height="100" rx="7" fill="#F6D98A" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="119.6" y="96" width="11.200000000000001" height="88" rx="4" fill="#E9BE5C" opacity=".55"/>
+  <rect x="72.0" y="100" width="4.2" height="60.0" rx="3" fill="#fff" opacity=".45"/>
+  
+  <ellipse cx="100" cy="94" rx="33.0" ry="7" fill="#E9BE5C" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M65.0,98 Q73.4,120 77.6,98
+          Q86.0,136 93.0,98
+          Q108.4,114 115.4,98
+          Q123.8,128 135.0,98" fill="#F6D98A" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-c1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-c1" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="64.9" r="57.0" fill="url(#glow-c1)"/>
+  <path d="M100,44 C114.364,61.1 115.96,74.4 100,82
+           C84.04,74.4 85.636,61.1 100,44 Z"
+        fill="url(#fl-c1)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M100,61.1 C105.586,68.7 105.586,76.3 100,78.96000000000001
+           C94.414,76.3 94.414,68.7 100,61.1 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="100" y1="78.96000000000001" x2="100" y2="92" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+</svg></div>
+    <ul class="ch-list"><li><span>Garlic & Herb Butter Candle</span><i></i><b>12</b></li><li><span>Hot Honey Beef Tallow Candle</span><i></i><b>13</b></li><li><span>Parmesan & Sun-Dried Tomato Candle</span><i></i><b>15</b></li><li><span>Brown Butter & Sage Candle</span><i></i><b>16</b></li><li><span>Truffle & Chive Candle</span><i></i><b>17</b></li><li><span>Everything Bagel Candle</span><i></i><b>18</b></li></ul></div></section><section class="page verso recipe"><div class="live">
+    <div class="r-head">
+      <p class="kicker">Savory Butter Candles</p>
+      <h2>Garlic & Herb Butter Candle</h2>
+      <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+    </div>
+    <figure class="r-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="190" ry="26" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="190" ry="26" fill="#F4EDE1" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="136.79999999999998" ry="15.6" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/><g transform="translate(70,236) rotate(-8)">
+  <path d="M0,0 C4,-26 70,-30 78,-4 C80,6 74,12 64,12 L10,12 C2,12 -2,6 0,0 Z" fill="#D9A15B" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M6,6 C14,-8 62,-10 72,2" fill="none" stroke="#F6E2BC" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M20,-10 l8,6 M36,-14 l8,6 M52,-12 l8,6" stroke="#3B2418" stroke-width="1.3" stroke-linecap="round"/></g><g transform="translate(385,238) rotate(6)">
+  <path d="M0,0 C4,-26 70,-30 78,-4 C80,6 74,12 64,12 L10,12 C2,12 -2,6 0,0 Z" fill="#D9A15B" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M6,6 C14,-8 62,-10 72,2" fill="none" stroke="#F6E2BC" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M20,-10 l8,6 M36,-14 l8,6 M52,-12 l8,6" stroke="#3B2418" stroke-width="1.3" stroke-linecap="round"/></g>
+  <rect x="200.0" y="100" width="120" height="150" rx="7" fill="#F6D98A" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="293.6" y="106" width="19.2" height="138" rx="4" fill="#E9BE5C" opacity=".55"/>
+  <rect x="212.0" y="110" width="7.199999999999999" height="90.0" rx="3" fill="#fff" opacity=".45"/>
+  <circle cx="215.4" cy="207.0" r="2.0" fill="#5E7B3E"/><circle cx="252.7" cy="238.5" r="1.6" fill="#5E7B3E"/><circle cx="231.2" cy="161.4" r="1.6" fill="#5E7B3E"/><circle cx="255.1" cy="191.2" r="1.8" fill="#5E7B3E"/><circle cx="273.9" cy="129.1" r="1.9" fill="#5E7B3E"/><circle cx="237.3" cy="195.1" r="1.9" fill="#5E7B3E"/><circle cx="303.0" cy="217.5" r="1.8" fill="#5E7B3E"/><circle cx="272.6" cy="229.8" r="1.9" fill="#5E7B3E"/><circle cx="282.8" cy="171.1" r="1.8" fill="#5E7B3E"/><circle cx="259.1" cy="197.3" r="2.1" fill="#5E7B3E"/><circle cx="260.3" cy="233.2" r="1.4" fill="#5E7B3E"/><circle cx="261.3" cy="147.9" r="1.1" fill="#5E7B3E"/><circle cx="293.5" cy="158.4" r="2.3" fill="#5E7B3E"/><circle cx="291.9" cy="200.7" r="1.1" fill="#5E7B3E"/><circle cx="309.0" cy="224.9" r="2.0" fill="#5E7B3E"/><circle cx="210.5" cy="179.3" r="1.8" fill="#5E7B3E"/><circle cx="214.7" cy="198.4" r="1.5" fill="#5E7B3E"/><circle cx="292.1" cy="204.9" r="1.8" fill="#5E7B3E"/><circle cx="238.0" cy="189.3" r="2.0" fill="#5E7B3E"/><circle cx="285.2" cy="161.9" r="1.3" fill="#5E7B3E"/><circle cx="209.2" cy="171.3" r="1.8" fill="#5E7B3E"/><circle cx="238.9" cy="163.0" r="1.4" fill="#5E7B3E"/><circle cx="251.0" cy="135.4" r="1.4" fill="#5E7B3E"/><circle cx="250.5" cy="149.2" r="1.8" fill="#5E7B3E"/><circle cx="280.8" cy="183.3" r="1.8" fill="#5E7B3E"/><circle cx="206.2" cy="206.4" r="1.5" fill="#5E7B3E"/><circle cx="298.7" cy="154.0" r="2.1" fill="#5E7B3E"/><circle cx="294.7" cy="228.5" r="1.9" fill="#5E7B3E"/><circle cx="214.5" cy="125.6" r="1.2" fill="#5E7B3E"/><circle cx="215.9" cy="170.1" r="1.6" fill="#5E7B3E"/><circle cx="251.6" cy="145.0" r="1.3" fill="#5E7B3E"/><circle cx="284.9" cy="230.2" r="1.7" fill="#5E7B3E"/><circle cx="308.5" cy="220.5" r="1.7" fill="#5E7B3E"/><circle cx="267.1" cy="155.9" r="2.3" fill="#5E7B3E"/><circle cx="302.4" cy="175.8" r="1.5" fill="#5E7B3E"/><circle cx="280.9" cy="135.7" r="2.0" fill="#5E7B3E"/><circle cx="236.9" cy="129.4" r="1.7" fill="#5E7B3E"/><circle cx="289.2" cy="122.9" r="1.7" fill="#5E7B3E"/>
+  <ellipse cx="260" cy="104" rx="58.0" ry="7" fill="#E9BE5C" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M200.0,108 Q214.4,130 221.6,108
+          Q236.0,146 248.0,108
+          Q274.4,124 286.4,108
+          Q300.8,138 320.0,108" fill="#F6D98A" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-gh" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-gh" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="260" cy="67.3" r="69.0" fill="url(#glow-gh)"/>
+  <path d="M260,42 C277.388,62.7 279.32,78.80000000000001 260,88
+           C240.68,78.80000000000001 242.612,62.7 260,42 Z"
+        fill="url(#fl-gh)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M260,62.7 C266.762,71.9 266.762,81.1 260,84.32
+           C253.238,81.1 253.238,71.9 260,62.7 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="260" y1="84.32" x2="260" y2="98" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<g transform="translate(150,230) rotate(-18)"><path d="M0,0 L0,-76" stroke="#3B2418" stroke-width="1.4" fill="none"/><g transform="translate(0,-8) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-13) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-22) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-27) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-36) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-41) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-50) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-55) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-64) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-69) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g></g><g transform="translate(372,232) rotate(22)"><path d="M0,0 L0,-62" stroke="#3B2418" stroke-width="1.4" fill="none"/><g transform="translate(0,-8) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-13) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-22) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-27) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-36) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-41) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-50) rotate(-40) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(0,-55) rotate(-140) scale(0.55)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g></g><circle cx="205" cy="252" r="9" fill="#F7F1E3" stroke="#3B2418" stroke-width="1.4"/><circle cx="320" cy="254" r="7" fill="#F7F1E3" stroke="#3B2418" stroke-width="1.4"/></svg></figure>
+    <p class="r-intro">The candle that started the trend. Light it ten minutes before guests sit down and a warm pool of garlicky butter collects at the top, ready for torn bread. By the end of the meal, the candle has quietly become the appetizer.</p>
+    <div class="meta"><div><b>Serves</b><i>6–8</i></div><div><b>Prep</b><i>15 min</i></div><div><b>Set</b><i>3 hrs</i></div><div><b>Burn</b><i>45–60 min</i></div></div>
+    <div class="r-body">
+      <div class="ing"><h3>Ingredients</h3><ul><li>1 cup (2 sticks / 225 g) salted butter, softened</li><li>3 garlic cloves, finely grated</li><li>2 tbsp fresh parsley, minced</li><li>1 tbsp fresh chives, minced</li><li>1 tsp fresh thyme leaves</li><li>½ tsp flaky sea salt</li><li>¼ tsp cracked black pepper</li><li class="sub">To assemble</li><li>1 food-safe cotton wick, 6 in</li><li>1 tsp olive oil, to prime the wick</li><li>1 tall 8 oz paper cup, as mold</li></ul></div>
+      <div class="met"><h3>Method</h3><ol><li><span>1</span><p>Prime the wick by rubbing it with olive oil until fully coated. Set aside on a paper towel.</p></li><li><span>2</span><p>In a bowl, beat the softened butter with a spatula until smooth and glossy. Fold in garlic, herbs, salt and pepper until evenly speckled.</p></li><li><span>3</span><p>Line the mold with parchment. Hold the wick upright in the center with a clothespin and pack in the butter in three layers, tapping out any air pockets.</p></li><li><span>4</span><p>Refrigerate for at least 3 hours, or freeze for 1 hour, until completely firm.</p></li><li><span>5</span><p>Unmold onto a rimmed plate, trim the wick to ¼ in and finish with flaky salt. Light 10 minutes before serving and dip warm bread into the melted pool.</p></li></ol>
+        <aside class="tip"><b>Chef’s note</b> Make the candle up to 5 days ahead and keep it wrapped in the fridge. Always blow it out before scooping the last of the butter.</aside></div>
+    </div></div><div class="folio verso"><span>12</span><em>The Edible Candle Cookbook</em></div></section><section class="page recto recipe"><div class="live">
+    <div class="r-head">
+      <p class="kicker">Savory Butter Candles</p>
+      <h2>Hot Honey Beef Tallow Candle</h2>
+      <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+    </div>
+    <figure class="r-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="180" ry="24" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="180" ry="24" fill="#EFE4D4" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="129.6" ry="14.399999999999999" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/><path d="M165,140 L175,250 L345,250 L355,140 Z" fill="#B84A3A" stroke="#3B2418" stroke-width="1.8"/>
+    <path d="M172,160 L348,160 M174,180 L346,180 M176,200 L344,200 M178,220 L342,220" stroke="#8E3328" stroke-width="2.2" opacity=".6"/>
+    <ellipse cx="260" cy="140" rx="95" ry="14" fill="#F2EAD9" stroke="#3B2418" stroke-width="1.8"/>
+    <ellipse cx="260" cy="140" rx="70" ry="8" fill="#F8C24E" opacity=".8"/>
+    <path d="M220,138 q14,-6 28,0 q14,6 28,0" stroke="#D9861E" stroke-width="2.2" fill="none"/>
+  <defs>
+    <radialGradient id="glow-tl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-tl" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="260" cy="105.5" r="75.0" fill="url(#glow-tl)"/>
+  <path d="M260,78 C278.9,100.5 281.0,118.0 260,128
+           C239.0,118.0 241.1,100.5 260,78 Z"
+        fill="url(#fl-tl)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M260,100.5 C267.35,110.5 267.35,120.5 260,124.0
+           C252.65,120.5 252.65,110.5 260,100.5 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="260" y1="124.0" x2="260" y2="138" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<g transform="translate(400,180) rotate(28)">
+      <rect x="-4" y="-80" width="8" height="90" rx="4" fill="#C98F4E" stroke="#3B2418" stroke-width="1.4"/>
+      <ellipse cx="0" cy="22" rx="16" ry="22" fill="#E9A93B" stroke="#3B2418" stroke-width="1.5"/>
+      <path d="M-15,14 h30 M-16,24 h32 M-14,34 h28" stroke="#3B2418" stroke-width="1.1"/></g><path d="M110,244 l8,-14 l8,14 Z" fill="#C8372D" stroke="#3B2418" stroke-width="1.1"/><path d="M128,258 l8,-14 l8,14 Z" fill="#C8372D" stroke="#3B2418" stroke-width="1.1"/><path d="M420,256 l8,-14 l8,14 Z" fill="#C8372D" stroke="#3B2418" stroke-width="1.1"/><g transform="translate(40,234) rotate(-6)">
+  <path d="M0,0 C4,-26 70,-30 78,-4 C80,6 74,12 64,12 L10,12 C2,12 -2,6 0,0 Z" fill="#D9A15B" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M6,6 C14,-8 62,-10 72,2" fill="none" stroke="#F6E2BC" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+  <path d="M20,-10 l8,6 M36,-14 l8,6 M52,-12 l8,6" stroke="#3B2418" stroke-width="1.3" stroke-linecap="round"/></g></svg></figure>
+    <p class="r-intro">Tallow burns slower and cleaner than butter, so this candle lasts the whole dinner. As it melts, swirl in a ribbon of chili-spiked honey for a sweet-heat dip that disappears faster than the bread basket can be refilled.</p>
+    <div class="meta"><div><b>Serves</b><i>6</i></div><div><b>Prep</b><i>20 min</i></div><div><b>Set</b><i>2 hrs</i></div><div><b>Burn</b><i>90+ min</i></div></div>
+    <div class="r-body">
+      <div class="ing"><h3>Ingredients</h3><ul><li>1 cup (200 g) rendered beef tallow</li><li>1 sprig fresh rosemary</li><li>1 garlic clove, smashed</li><li>½ tsp smoked sea salt</li><li class="sub">Hot honey</li><li>⅓ cup (110 g) runny honey</li><li>1–2 tsp red chili flakes</li><li>1 tsp apple cider vinegar</li><li class="sub">To assemble</li><li>1 food-safe cotton wick with metal tab</li><li>1 oven-safe 8 oz ramekin</li></ul></div>
+      <div class="met"><h3>Method</h3><ol><li><span>1</span><p>Gently melt the tallow with the rosemary and garlic over low heat for 10 minutes to infuse. Do not let it smoke. Strain and stir in the smoked salt.</p></li><li><span>2</span><p>Fix the wick tab to the center of the ramekin with a drop of the warm tallow. Let it set for one minute, then pour in the infused tallow.</p></li><li><span>3</span><p>Leave at room temperature for 2 hours, or chill for 45 minutes, until opaque and firm.</p></li><li><span>4</span><p>Meanwhile, warm honey, chili flakes and vinegar for 3 minutes. Cool slightly.</p></li><li><span>5</span><p>Light the candle at the table. Once a melted pool forms, drizzle in the hot honey and dip toasted sourdough straight into the ramekin.</p></li></ol>
+        <aside class="tip"><b>Swap it</b> No tallow? Use ghee for a nutty, vegetarian version with the same long, steady burn.</aside></div>
+    </div></div><div class="folio recto"><span>13</span><em>The Edible Candle Cookbook</em></div></section><section class="page verso feature"><div class="live">
+  <figure class="feature-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="190" ry="26" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="190" ry="26" fill="#F4EDE1" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="136.79999999999998" ry="15.6" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/>
+  <rect x="154.0" y="130" width="92" height="120" rx="7" fill="#F3CF7E" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="225.76" y="136" width="14.72" height="108" rx="4" fill="#E0AF4E" opacity=".55"/>
+  <rect x="163.2" y="140" width="5.52" height="72.0" rx="3" fill="#fff" opacity=".45"/>
+  <circle cx="181.8" cy="214.2" r="2.1" fill="#B43A26"/><circle cx="202.9" cy="197.6" r="1.9" fill="#B43A26"/><circle cx="229.2" cy="221.1" r="1.4" fill="#B43A26"/><circle cx="204.6" cy="187.3" r="2.3" fill="#B43A26"/><circle cx="222.9" cy="197.0" r="2.1" fill="#B43A26"/><circle cx="209.8" cy="226.9" r="1.5" fill="#B43A26"/><circle cx="196.6" cy="232.5" r="1.2" fill="#B43A26"/><circle cx="195.1" cy="166.9" r="2.2" fill="#B43A26"/><circle cx="216.7" cy="151.9" r="2.2" fill="#B43A26"/><circle cx="175.3" cy="186.4" r="2.2" fill="#B43A26"/><circle cx="184.5" cy="149.0" r="1.7" fill="#B43A26"/><circle cx="187.1" cy="213.2" r="2.4" fill="#B43A26"/><circle cx="237.3" cy="159.1" r="2.1" fill="#B43A26"/><circle cx="187.4" cy="186.7" r="1.4" fill="#B43A26"/><circle cx="205.0" cy="216.8" r="2.0" fill="#B43A26"/><circle cx="226.4" cy="192.6" r="2.0" fill="#B43A26"/><circle cx="170.1" cy="220.4" r="1.2" fill="#B43A26"/><circle cx="197.3" cy="167.4" r="1.7" fill="#B43A26"/><circle cx="210.1" cy="239.5" r="1.4" fill="#B43A26"/><circle cx="210.0" cy="202.5" r="1.6" fill="#B43A26"/><circle cx="186.4" cy="208.0" r="1.5" fill="#B43A26"/><circle cx="237.0" cy="166.4" r="1.6" fill="#B43A26"/><circle cx="176.0" cy="172.8" r="1.6" fill="#B43A26"/><circle cx="191.1" cy="214.6" r="1.5" fill="#B43A26"/><circle cx="226.2" cy="153.1" r="2.0" fill="#B43A26"/><circle cx="235.1" cy="163.6" r="1.7" fill="#B43A26"/>
+  <ellipse cx="200" cy="134" rx="44.0" ry="7" fill="#E0AF4E" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M154.0,138 Q165.04,160 170.56,138
+          Q181.6,176 190.8,138
+          Q211.04,154 220.24,138
+          Q231.28,168 246.0,138" fill="#F3CF7E" stroke="#3B2418" stroke-width="1.4"/>
+
+  <rect x="282.0" y="158" width="80" height="92" rx="7" fill="#F3CF7E" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="344.4" y="164" width="12.8" height="80" rx="4" fill="#E0AF4E" opacity=".55"/>
+  <rect x="290.0" y="168" width="4.8" height="55.199999999999996" rx="3" fill="#fff" opacity=".45"/>
+  <circle cx="326.9" cy="237.1" r="1.7" fill="#B43A26"/><circle cx="326.2" cy="185.4" r="1.4" fill="#B43A26"/><circle cx="351.8" cy="198.2" r="2.1" fill="#B43A26"/><circle cx="346.8" cy="208.5" r="1.8" fill="#B43A26"/><circle cx="309.4" cy="222.3" r="1.7" fill="#B43A26"/><circle cx="326.8" cy="230.7" r="1.6" fill="#B43A26"/><circle cx="310.2" cy="195.7" r="1.1" fill="#B43A26"/><circle cx="292.9" cy="206.4" r="1.2" fill="#B43A26"/><circle cx="316.4" cy="210.8" r="1.5" fill="#B43A26"/><circle cx="321.7" cy="231.5" r="1.1" fill="#B43A26"/><circle cx="339.6" cy="188.3" r="1.6" fill="#B43A26"/><circle cx="354.8" cy="227.0" r="1.6" fill="#B43A26"/><circle cx="314.6" cy="217.9" r="1.2" fill="#B43A26"/><circle cx="305.6" cy="231.4" r="1.2" fill="#B43A26"/><circle cx="347.9" cy="183.3" r="1.2" fill="#B43A26"/><circle cx="350.8" cy="178.0" r="1.8" fill="#B43A26"/><circle cx="341.1" cy="211.4" r="1.1" fill="#B43A26"/><circle cx="298.8" cy="177.6" r="1.3" fill="#B43A26"/>
+  <ellipse cx="322" cy="162" rx="38.0" ry="7" fill="#E0AF4E" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M282.0,166 Q291.6,188 296.4,166
+          Q306.0,204 314.0,166
+          Q331.6,182 339.6,166
+          Q349.2,196 362.0,166" fill="#F3CF7E" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-pm1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-pm1" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="98.2" r="66.0" fill="url(#glow-pm1)"/>
+  <path d="M200,74 C216.632,93.8 218.48,109.2 200,118
+           C181.52,109.2 183.368,93.8 200,74 Z"
+        fill="url(#fl-pm1)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M200,93.8 C206.468,102.6 206.468,111.4 200,114.48
+           C193.532,111.4 193.532,102.6 200,93.8 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="200" y1="114.48" x2="200" y2="128" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+
+  <defs>
+    <radialGradient id="glow-pm2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-pm2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="322" cy="128.0" r="60.0" fill="url(#glow-pm2)"/>
+  <path d="M322,106 C337.12,124.0 338.8,138.0 322,146
+           C305.2,138.0 306.88,124.0 322,106 Z"
+        fill="url(#fl-pm2)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M322,124.0 C327.88,132.0 327.88,140.0 322,142.8
+           C316.12,140.0 316.12,132.0 322,124.0 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="322" y1="142.8" x2="322" y2="156" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M80,246 l52,-40 l26,46 Z" fill="#F4E2A6" stroke="#3B2418" stroke-width="1.6"/>
+    <circle cx="112" cy="236" r="3" fill="#E0C680"/><circle cx="130" cy="224" r="2.4" fill="#E0C680"/><g transform="translate(380,246) rotate(-20) scale(1.1)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g><g transform="translate(400,252) rotate(30) scale(1.0)">
+    <path d="M0,0 C8,-10 26,-10 34,0 C26,10 8,10 0,0 Z" fill="#7C9A5B" stroke="#3B2418" stroke-width="1.3"/>
+    <line x1="2" y1="0" x2="30" y2="0" stroke="#3B2418" stroke-width=".9"/></g></svg></figure>
+  <p class="kicker center">From the next pages</p>
+  <h2 class="center feature">Parmesan &amp; Sun-Dried Tomato Candle</h2>
+  <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+  <p class="center quote">“Two candles, one board, and a crowd around the table who forgot
+  there was a main course coming.”</p>
+</div><div class="folio verso"><span>14</span><em>The Edible Candle Cookbook</em></div></section><section class="page recto chapter"><div class="live">
+    <div class="ch-num">Chapter 2</div>
+    <h1 class="ch-title">Sweet Dipping Candles</h1>
+    <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#E7C47A" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#E7C47A"/><circle cx="96" cy="10" r="2" fill="#E7C47A"/><circle cx="124" cy="10" r="2" fill="#E7C47A"/></svg>
+    <p class="ch-blurb">Cocoa butter, vanilla, caramel and fruit. Light them after dinner and let dessert melt into a dip right in front of your guests.</p>
+    <div class="ch-art"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet">
+  <rect x="65.0" y="90" width="70" height="100" rx="7" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="119.6" y="96" width="11.200000000000001" height="88" rx="4" fill="#E8D3AC" opacity=".55"/>
+  <rect x="72.0" y="100" width="4.2" height="60.0" rx="3" fill="#fff" opacity=".45"/>
+  
+  <ellipse cx="100" cy="94" rx="33.0" ry="7" fill="#E8D3AC" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M65.0,98 Q73.4,120 77.6,98
+          Q86.0,136 93.0,98
+          Q108.4,114 115.4,98
+          Q123.8,128 135.0,98" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-c2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-c2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="64.9" r="57.0" fill="url(#glow-c2)"/>
+  <path d="M100,44 C114.364,61.1 115.96,74.4 100,82
+           C84.04,74.4 85.636,61.1 100,44 Z"
+        fill="url(#fl-c2)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M100,61.1 C105.586,68.7 105.586,76.3 100,78.96000000000001
+           C94.414,76.3 94.414,68.7 100,61.1 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="100" y1="78.96000000000001" x2="100" y2="92" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+</svg></div>
+    <ul class="ch-list"><li><span>Vanilla Bean Cocoa Butter Candle</span><i></i><b>34</b></li><li><span>Banana & Almond Trick Candles</span><i></i><b>35</b></li><li><span>Salted Caramel Candle</span><i></i><b>36</b></li><li><span>Cinnamon Roll Candle</span><i></i><b>37</b></li><li><span>Orange & Cardamom Candle</span><i></i><b>38</b></li><li><span>Peppermint Bark Candle</span><i></i><b>39</b></li></ul></div></section><section class="page verso recipe"><div class="live">
+    <div class="r-head">
+      <p class="kicker">Sweet Dipping Candles</p>
+      <h2>Vanilla Bean Cocoa Butter Candle</h2>
+      <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+    </div>
+    <figure class="r-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="190" ry="26" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="190" ry="26" fill="#F6EFE7" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="136.79999999999998" ry="15.6" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/>
+  <rect x="204.0" y="110" width="112" height="140" rx="7" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.8"/>
+  <rect x="291.36" y="116" width="17.92" height="128" rx="4" fill="#E8D3AC" opacity=".55"/>
+  <rect x="215.2" y="120" width="6.72" height="84.0" rx="3" fill="#fff" opacity=".45"/>
+  <circle cx="212.9" cy="209.6" r="2.4" fill="#3B2418"/><circle cx="286.8" cy="150.0" r="1.5" fill="#3B2418"/><circle cx="275.5" cy="213.5" r="2.3" fill="#3B2418"/><circle cx="269.7" cy="158.5" r="1.8" fill="#3B2418"/><circle cx="307.0" cy="220.7" r="2.2" fill="#3B2418"/><circle cx="304.1" cy="139.0" r="1.1" fill="#3B2418"/><circle cx="296.4" cy="236.6" r="1.8" fill="#3B2418"/><circle cx="290.1" cy="144.8" r="1.9" fill="#3B2418"/><circle cx="227.6" cy="240.2" r="1.9" fill="#3B2418"/><circle cx="273.6" cy="239.7" r="1.9" fill="#3B2418"/><circle cx="223.6" cy="129.0" r="1.8" fill="#3B2418"/><circle cx="216.1" cy="218.2" r="1.7" fill="#3B2418"/><circle cx="262.8" cy="238.9" r="1.9" fill="#3B2418"/><circle cx="281.8" cy="215.1" r="1.1" fill="#3B2418"/><circle cx="268.9" cy="189.7" r="1.1" fill="#3B2418"/><circle cx="268.4" cy="151.5" r="1.7" fill="#3B2418"/><circle cx="218.9" cy="230.0" r="2.3" fill="#3B2418"/><circle cx="232.0" cy="146.6" r="2.2" fill="#3B2418"/><circle cx="225.5" cy="230.5" r="1.2" fill="#3B2418"/><circle cx="232.2" cy="239.5" r="1.1" fill="#3B2418"/><circle cx="252.2" cy="219.3" r="1.5" fill="#3B2418"/><circle cx="282.2" cy="237.7" r="1.7" fill="#3B2418"/><circle cx="218.3" cy="146.1" r="1.5" fill="#3B2418"/><circle cx="276.3" cy="189.2" r="1.6" fill="#3B2418"/><circle cx="284.1" cy="167.3" r="2.4" fill="#3B2418"/><circle cx="299.5" cy="174.6" r="2.4" fill="#3B2418"/><circle cx="285.7" cy="238.1" r="1.7" fill="#3B2418"/><circle cx="253.5" cy="236.3" r="1.8" fill="#3B2418"/><circle cx="267.1" cy="236.8" r="1.6" fill="#3B2418"/><circle cx="302.5" cy="208.4" r="2.3" fill="#3B2418"/><circle cx="280.9" cy="161.5" r="1.2" fill="#3B2418"/><circle cx="226.2" cy="143.9" r="1.7" fill="#3B2418"/><circle cx="210.4" cy="226.4" r="2.1" fill="#3B2418"/><circle cx="235.6" cy="183.3" r="1.9" fill="#3B2418"/><circle cx="237.4" cy="224.7" r="2.4" fill="#3B2418"/><circle cx="236.1" cy="154.5" r="2.3" fill="#3B2418"/><circle cx="288.1" cy="203.2" r="1.3" fill="#3B2418"/><circle cx="260.7" cy="152.5" r="1.3" fill="#3B2418"/><circle cx="229.4" cy="167.7" r="1.9" fill="#3B2418"/><circle cx="227.9" cy="193.0" r="2.2" fill="#3B2418"/><circle cx="287.4" cy="168.4" r="2.1" fill="#3B2418"/><circle cx="211.4" cy="208.5" r="1.6" fill="#3B2418"/><circle cx="268.6" cy="130.9" r="2.1" fill="#3B2418"/><circle cx="291.6" cy="233.8" r="1.2" fill="#3B2418"/>
+  <ellipse cx="260" cy="114" rx="54.0" ry="7" fill="#E8D3AC" stroke="#3B2418" stroke-width="1.4"/>
+  <path d="M204.0,118 Q217.44,140 224.16,118
+          Q237.6,156 248.8,118
+          Q273.44,134 284.64,118
+          Q298.08,148 316.0,118" fill="#F7EBD2" stroke="#3B2418" stroke-width="1.4"/>
+
+  <defs>
+    <radialGradient id="glow-cb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-cb" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="260" cy="77.3" r="69.0" fill="url(#glow-cb)"/>
+  <path d="M260,52 C277.388,72.7 279.32,88.80000000000001 260,98
+           C240.68,88.80000000000001 242.612,72.7 260,52 Z"
+        fill="url(#fl-cb)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M260,72.7 C266.762,81.9 266.762,91.1 260,94.32
+           C253.238,91.1 253.238,81.9 260,72.7 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="260" y1="94.32" x2="260" y2="108" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<g transform="translate(110,242) rotate(-20)">
+          <path d="M0,-18 C18,-20 22,-2 0,22 C-22,-2 -18,-20 0,-18 Z" fill="#D9363E" stroke="#3B2418" stroke-width="1.5"/>
+          <path d="M-10,-18 l5,-8 l5,6 l5,-6 l5,8 Z" fill="#6E8F45" stroke="#3B2418" stroke-width="1.1"/>
+          <circle cx="-5" cy="-6" r="1.3" fill="#FCE3A0"/><circle cx="5" cy="-2" r="1.3" fill="#FCE3A0"/><circle cx="-1" cy="6" r="1.3" fill="#FCE3A0"/></g><g transform="translate(148,254) rotate(10)">
+          <path d="M0,-18 C18,-20 22,-2 0,22 C-22,-2 -18,-20 0,-18 Z" fill="#D9363E" stroke="#3B2418" stroke-width="1.5"/>
+          <path d="M-10,-18 l5,-8 l5,6 l5,-6 l5,8 Z" fill="#6E8F45" stroke="#3B2418" stroke-width="1.1"/>
+          <circle cx="-5" cy="-6" r="1.3" fill="#FCE3A0"/><circle cx="5" cy="-2" r="1.3" fill="#FCE3A0"/><circle cx="-1" cy="6" r="1.3" fill="#FCE3A0"/></g><g transform="translate(380,248) rotate(15)">
+          <path d="M0,-18 C18,-20 22,-2 0,22 C-22,-2 -18,-20 0,-18 Z" fill="#D9363E" stroke="#3B2418" stroke-width="1.5"/>
+          <path d="M-10,-18 l5,-8 l5,6 l5,-6 l5,8 Z" fill="#6E8F45" stroke="#3B2418" stroke-width="1.1"/>
+          <circle cx="-5" cy="-6" r="1.3" fill="#FCE3A0"/><circle cx="5" cy="-2" r="1.3" fill="#FCE3A0"/><circle cx="-1" cy="6" r="1.3" fill="#FCE3A0"/></g><path d="M330,264 C370,256 420,260 455,244" stroke="#3B2418" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M330,264 C370,256 420,260 455,244" stroke="#4A2C1C" stroke-width="3" stroke-linecap="round" fill="none"/></svg></figure>
+    <p class="r-intro">A dessert you light instead of plate. Pure cocoa butter melts into a silky, white-chocolate-scented dip for strawberries, shortbread and salted pretzels. Flecked with real vanilla, it looks as good on the table as it tastes.</p>
+    <div class="meta"><div><b>Serves</b><i>4–6</i></div><div><b>Prep</b><i>15 min</i></div><div><b>Set</b><i>2 hrs</i></div><div><b>Burn</b><i>40–50 min</i></div></div>
+    <div class="r-body">
+      <div class="ing"><h3>Ingredients</h3><ul><li>¾ cup (150 g) food-grade cocoa butter wafers</li><li>2 tbsp refined coconut oil</li><li>1 vanilla bean, seeds scraped</li><li>Pinch of flaky sea salt</li><li class="sub">For dipping</li><li>1 lb (450 g) fresh strawberries</li><li>Shortbread, pretzels or biscotti</li><li class="sub">To assemble</li><li>1 food-safe cotton wick, 6 in</li><li>1 short 6 oz glass or silicone mold</li></ul></div>
+      <div class="met"><h3>Method</h3><ol><li><span>1</span><p>Melt the cocoa butter and coconut oil in a heatproof bowl set over barely simmering water, stirring until clear and fluid.</p></li><li><span>2</span><p>Remove from the heat and whisk in the vanilla seeds and salt. Let cool for 8–10 minutes, stirring often, until slightly thickened so the seeds stay suspended.</p></li><li><span>3</span><p>Center the wick in the mold and pour in the mixture. Tap gently to settle.</p></li><li><span>4</span><p>Chill for 2 hours until completely firm, then unmold onto a serving board.</p></li><li><span>5</span><p>Light the candle and arrange the fruit and biscuits around it. Dip once a warm pool has formed, about 8 minutes.</p></li></ol>
+        <aside class="tip"><b>Keep it neat</b> Trim the wick to ¼ in before every lighting. A short flame melts the cocoa butter gently without scorching the vanilla.</aside></div>
+    </div></div><div class="folio verso"><span>34</span><em>The Edible Candle Cookbook</em></div></section><section class="page recto recipe"><div class="live">
+    <div class="r-head">
+      <p class="kicker">Sweet Dipping Candles</p>
+      <h2>Banana & Almond Trick Candles</h2>
+      <svg viewBox="0 0 220 20" xmlns="http://www.w3.org/2000/svg" class="orn"><path d="M0,10 H88 M132,10 H220" stroke="#B8893B" stroke-width="1"/><path d="M110,1 C116,7 116,13 110,19 C104,13 104,7 110,1 Z" fill="#B8893B"/><circle cx="96" cy="10" r="2" fill="#B8893B"/><circle cx="124" cy="10" r="2" fill="#B8893B"/></svg>
+    </div>
+    <figure class="r-art"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid meet"><ellipse cx="260" cy="260" rx="200" ry="26" fill="#000" opacity=".06"/>
+  <ellipse cx="260" cy="254" rx="200" ry="26" fill="#F2ECE2" stroke="#3B2418" stroke-width="1.8"/>
+  <ellipse cx="260" cy="251" rx="144.0" ry="15.6" fill="none" stroke="#3B2418" stroke-width="1" opacity=".45"/><path d="M146,250 L148,164 Q170,148 192,164 L194,250 Z"
+          fill="#FBF1C7" stroke="#3B2418" stroke-width="1.7"/>
+          <path d="M182,168 L184,246" stroke="#EADB98" stroke-width="6" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="glow-bn0" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-bn0" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="170" cy="127.8" r="54.0" fill="url(#glow-bn0)"/>
+  <path d="M170,108 C183.608,124.2 185.12,136.8 170,144
+           C154.88,136.8 156.392,124.2 170,108 Z"
+        fill="url(#fl-bn0)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M170,124.2 C175.292,131.4 175.292,138.6 170,141.12
+           C164.708,138.6 164.708,131.4 170,124.2 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="170" y1="141.12" x2="170" y2="154" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M236,250 L238,140 Q260,124 282,140 L284,250 Z"
+          fill="#FBF1C7" stroke="#3B2418" stroke-width="1.7"/>
+          <path d="M272,144 L274,246" stroke="#EADB98" stroke-width="6" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="glow-bn1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-bn1" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="260" cy="103.8" r="54.0" fill="url(#glow-bn1)"/>
+  <path d="M260,84 C273.608,100.2 275.12,112.8 260,120
+           C244.88,112.8 246.392,100.2 260,84 Z"
+        fill="url(#fl-bn1)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M260,100.2 C265.292,107.4 265.292,114.6 260,117.12
+           C254.708,114.6 254.708,107.4 260,100.2 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="260" y1="117.12" x2="260" y2="130" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M326,250 L328,174 Q350,158 372,174 L374,250 Z"
+          fill="#FBF1C7" stroke="#3B2418" stroke-width="1.7"/>
+          <path d="M362,178 L364,246" stroke="#EADB98" stroke-width="6" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="glow-bn2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFD27A" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#FFD27A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fl-bn2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E8572A"/>
+      <stop offset="45%" stop-color="#F4A23B"/>
+      <stop offset="100%" stop-color="#FFE7A3"/>
+    </linearGradient>
+  </defs>
+  <circle cx="350" cy="137.8" r="54.0" fill="url(#glow-bn2)"/>
+  <path d="M350,118 C363.608,134.2 365.12,146.8 350,154
+           C334.88,146.8 336.392,134.2 350,118 Z"
+        fill="url(#fl-bn2)" stroke="#3B2418" stroke-width="1.6"/>
+  <path d="M350,134.2 C355.292,141.4 355.292,148.6 350,151.12
+           C344.708,148.6 344.708,141.4 350,134.2 Z"
+        fill="#FFF6D6" opacity=".9"/>
+  <line x1="350" y1="151.12" x2="350" y2="164" stroke="#3B2418" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M60,248 q40,20 80,4" stroke="#5A321F" stroke-width="7" stroke-linecap="round" fill="none" opacity=".85"/>
+    <path d="M380,258 q40,14 82,-6" stroke="#5A321F" stroke-width="7" stroke-linecap="round" fill="none" opacity=".85"/><ellipse cx="96" cy="262" rx="9" ry="4.5" fill="#E9C99A" stroke="#3B2418" stroke-width="1.1"/><ellipse cx="430" cy="242" rx="9" ry="4.5" fill="#E9C99A" stroke="#3B2418" stroke-width="1.1"/><ellipse cx="450" cy="256" rx="9" ry="4.5" fill="#E9C99A" stroke="#3B2418" stroke-width="1.1"/></svg></figure>
+    <p class="r-intro">The party trick every kid (and grown-up) asks for again. A banana “candle” with a sliver of almond as its wick really does burn for a minute or two, thanks to the natural oil in the nut. Blow it out, then eat the whole thing.</p>
+    <div class="meta"><div><b>Serves</b><i>4</i></div><div><b>Prep</b><i>10 min</i></div><div><b>Set</b><i>None</i></div><div><b>Burn</b><i>1–2 min</i></div></div>
+    <div class="r-body">
+      <div class="ing"><h3>Ingredients</h3><ul><li>2 firm, just-ripe bananas</li><li>4 raw almond slivers (not toasted)</li><li>½ lemon, juiced</li><li class="sub">Chocolate drizzle</li><li>3 oz (85 g) dark chocolate, chopped</li><li>3 tbsp heavy cream</li><li>Pinch of cinnamon</li></ul></div>
+      <div class="met"><h3>Method</h3><ol><li><span>1</span><p>Peel the bananas and cut each into two pieces with flat ends, 3–4 in tall. Brush with lemon juice to keep them bright.</p></li><li><span>2</span><p>Stand the pieces upright on a serving plate. With a skewer, make a small hole in the top of each and press in an almond sliver, leaving ¼ in exposed.</p></li><li><span>3</span><p>Warm the cream until steaming, pour over the chocolate and cinnamon, wait 1 minute and stir until glossy.</p></li><li><span>4</span><p>Dim the lights, light the almond “wicks” with a long match and let them flicker. Blow out, drizzle with chocolate and serve immediately.</p></li></ol>
+        <aside class="tip"><b>Allergy note</b> Contains tree nuts. For a nut-free version, use a thin strip of coconut flesh, which burns briefly in the same way.</aside></div>
+    </div></div><div class="folio recto"><span>35</span><em>The Edible Candle Cookbook</em></div></section><section class="page verso conversions"><div class="live">
+  <p class="kicker">Kitchen reference</p>
+  <h1 class="pg-title left">Measurement Conversions</h1>
+  <div class="conv">
+    <table><thead><tr><th colspan="3">Volume</th></tr></thead><tbody>
+      <tr><td>1 tsp</td><td>5 ml</td><td></td></tr>
+      <tr><td>1 tbsp</td><td>15 ml</td><td>3 tsp</td></tr>
+      <tr><td>¼ cup</td><td>60 ml</td><td>4 tbsp</td></tr>
+      <tr><td>⅓ cup</td><td>80 ml</td><td>5⅓ tbsp</td></tr>
+      <tr><td>½ cup</td><td>120 ml</td><td>8 tbsp</td></tr>
+      <tr><td>1 cup</td><td>240 ml</td><td>16 tbsp</td></tr></tbody></table>
+    <table><thead><tr><th colspan="3">Fats by weight</th></tr></thead><tbody>
+      <tr><td>Butter, 1 stick</td><td>½ cup</td><td>113 g</td></tr>
+      <tr><td>Butter, 1 cup</td><td>2 sticks</td><td>225 g</td></tr>
+      <tr><td>Tallow, 1 cup</td><td></td><td>200 g</td></tr>
+      <tr><td>Ghee, 1 cup</td><td></td><td>205 g</td></tr>
+      <tr><td>Cocoa butter, 1 cup</td><td></td><td>200 g</td></tr>
+      <tr><td>Coconut oil, 1 cup</td><td></td><td>215 g</td></tr></tbody></table>
+    <table><thead><tr><th colspan="3">Temperatures</th></tr></thead><tbody>
+      <tr><td>Butter melts</td><td>90–95 °F</td><td>32–35 °C</td></tr>
+      <tr><td>Cocoa butter melts</td><td>93–100 °F</td><td>34–38 °C</td></tr>
+      <tr><td>Tallow melts</td><td>104–122 °F</td><td>40–50 °C</td></tr>
+      <tr><td>Fridge</td><td>37–40 °F</td><td>3–4 °C</td></tr></tbody></table>
+    <table><thead><tr><th colspan="3">Mold sizes</th></tr></thead><tbody>
+      <tr><td>Paper cup, 8 oz</td><td>1 cup fat</td><td>6–8 servings</td></tr>
+      <tr><td>Ramekin, 8 oz</td><td>1 cup fat</td><td>6 servings</td></tr>
+      <tr><td>Short glass, 6 oz</td><td>¾ cup fat</td><td>4–6 servings</td></tr>
+      <tr><td>Mini mold, 2 oz</td><td>¼ cup fat</td><td>1–2 servings</td></tr></tbody></table>
+  </div>
+</div><div class="folio verso"><span>96</span><em>The Edible Candle Cookbook</em></div></section></body></html>
