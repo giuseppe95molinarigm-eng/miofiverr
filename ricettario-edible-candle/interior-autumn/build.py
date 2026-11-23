@@ -284,12 +284,23 @@ pages.append(recipe_page(RECIPES[3]))
 
 # ---------------------------------------------------------------- css
 CSS = f"""
-@font-face {{ font-family: 'Cinzel'; src: url('{FONTS}/Cinzel.ttf'); font-weight: 400 900; }}
-@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/CormorantGaramond.ttf'); font-weight: 300 700; }}
-@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/CormorantGaramond-Italic.ttf'); font-style: italic; font-weight: 300 700; }}
-@font-face {{ font-family: 'Jost'; src: url('{FONTS}/Jost.ttf'); font-weight: 100 900; }}
+@font-face {{ font-family: 'Cinzel'; src: url('{FONTS}/static/Cinzel-400.ttf'); font-style: normal; font-weight: 400; }}
+@font-face {{ font-family: 'Cinzel'; src: url('{FONTS}/static/Cinzel-500.ttf'); font-style: normal; font-weight: 500; }}
+@font-face {{ font-family: 'Cinzel'; src: url('{FONTS}/static/Cinzel-600.ttf'); font-style: normal; font-weight: 600; }}
+@font-face {{ font-family: 'Cinzel'; src: url('{FONTS}/static/Cinzel-700.ttf'); font-style: normal; font-weight: 700; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-400.ttf'); font-style: normal; font-weight: 400; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-500.ttf'); font-style: normal; font-weight: 500; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-600.ttf'); font-style: normal; font-weight: 600; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-700.ttf'); font-style: normal; font-weight: 700; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-Italic-400.ttf'); font-style: italic; font-weight: 400; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-Italic-500.ttf'); font-style: italic; font-weight: 500; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-Italic-600.ttf'); font-style: italic; font-weight: 600; }}
+@font-face {{ font-family: 'Cormorant'; src: url('{FONTS}/static/CormorantGaramond-Italic-700.ttf'); font-style: italic; font-weight: 700; }}
+@font-face {{ font-family: 'Jost'; src: url('{FONTS}/static/Jost-400.ttf'); font-style: normal; font-weight: 400; }}
+@font-face {{ font-family: 'Jost'; src: url('{FONTS}/static/Jost-500.ttf'); font-style: normal; font-weight: 500; }}
+@font-face {{ font-family: 'Jost'; src: url('{FONTS}/static/Jost-600.ttf'); font-style: normal; font-weight: 600; }}
 @font-face {{ font-family: 'Vibes'; src: url('{FONTS}/GreatVibes-Regular.ttf'); }}
-@page {{ size: 8.125in 10.25in; margin: 0; }}
+@page {{ size: 780px 984px; margin: 0; }}
 :root {{ --choc:#1E140E; --gold:#C9963E; --gold2:#E2B865; --cream:#FBF5EA; --sand:#F2E6D2;
         --ink:#2B1B12; --soft:#6E5646; --pumpkin:#C8641F; --fig:#7B2A2A; }}
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}

@@ -12,7 +12,7 @@ const fs = require('fs');
   await page.evaluate(() => document.fonts.ready);
   await page.pdf({
     path: path.join(root, 'build', 'edible-candle-cookbook-interior.pdf'),
-    width: '8.125in', height: '10.25in', printBackground: true, preferCSSPageSize: true,
+    width: '780px', height: '984px', printBackground: true, preferCSSPageSize: true,
   });
 
   // per-page PNGs (used for previews and the Fiverr showcase images)
@@ -27,5 +27,6 @@ const fs = require('fs');
     await els[i].screenshot({ path: path.join(dir, `p${String(i + 1).padStart(2, '0')}.png`) });
   }
   await browser.close();
+  require('child_process').execFileSync('python3', [path.join(root, 'fixpdf.py'), path.join(root, 'build', 'edible-candle-cookbook-interior.pdf')]);
   console.log('done', els.length);
 })();
