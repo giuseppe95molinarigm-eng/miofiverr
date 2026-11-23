@@ -262,7 +262,7 @@ pages.append(chapter_page(
      ("Brown Butter, Sage &amp; Walnut Candle", 16),
      ("Parmesan &amp; Black Pepper Candle", 18),
      ("Everything Bagel Butter Candle", 20)],
-    {"cls": "with-band", "band": f'<div class="ch-photo"><img src="{IMG}/still_fade.jpg" alt=""></div>'}))
+    {"cls": "with-arch", "inline": f'<figure class="ch-arch"><img src="{IMG}/ch1.jpg" alt=""></figure>'}))
 
 pages.append(recipe_page(RECIPES[0]))
 pages.append(recipe_page(RECIPES[1]))
