@@ -45,7 +45,7 @@ def folio(n, side, dark=False):
 # ---------------------------------------------------------------- recipes (client text, verbatim)
 RECIPES = [
     dict(
-        num="01", chapter="Savory Butter Candles", page=13, side="recto", img="r1.jpg", pos="50% 55%",
+        num="01", chapter="Savory Butter Candles", page=13, side="recto", img="r1.jpg", pos="50% 12%",
         title="Roasted Garlic &amp; Rosemary Butter Candle",
         intro="Sweet roasted garlic and fragrant rosemary turn a simple butter spread into a "
               "centerpiece for warm, crusty bread.",
@@ -73,7 +73,7 @@ RECIPES = [
              "it before serving. Spread the butter over warm baguette slices."),
         ]),
     dict(
-        num="02", chapter="Savory Butter Candles", page=14, side="verso", img="r2.jpg", pos="50% 50%",
+        num="02", chapter="Savory Butter Candles", page=14, side="verso", img="r2.jpg", pos="50% 32%",
         title="Smoked Paprika &amp; Sea Salt Butter Candle",
         intro="Sweet smoked paprika gives this butter its copper color and a woodsmoke aroma. "
               "A pinch of flaky sea salt adds crunch to each bite of grilled sourdough.",
@@ -118,7 +118,7 @@ RECIPES = [
              "and toasted walnuts."),
         ]),
     dict(
-        num="04", chapter="Sweet Butter Candles", page=27, side="recto", img="r4.jpg", pos="50% 60%",
+        num="04", chapter="Sweet Butter Candles", page=27, side="recto", img="r4.jpg", pos="50% 85%",
         title="Maple &amp; Cinnamon Butter Candle",
         intro="Maple syrup and cinnamon make a soft, lightly sweet butter that melts into the "
               "pockets of a hot waffle.",
@@ -154,7 +154,6 @@ def recipe_page(r):
     <div class="r-head">
       <p class="kicker"><span class="num">{r['num']}</span> {r['chapter']}</p>
       <h1 class="r-title">{r['title']}</h1>
-      {rule()}
       <p class="r-intro">{r['intro']}</p>
     </div>
     <div class="meta" style="grid-template-columns: repeat({len(r['meta'])}, 1fr)">{meta}</div>
@@ -263,7 +262,7 @@ pages.append(chapter_page(
      ("Brown Butter, Sage &amp; Walnut Candle", 16),
      ("Parmesan &amp; Black Pepper Candle", 18),
      ("Everything Bagel Butter Candle", 20)],
-    {"cls": "with-band", "band": f'<div class="ch-photo"><img src="{IMG}/still.jpg" alt=""></div>'}))
+    {"cls": "with-band", "band": f'<div class="ch-photo"><img src="{IMG}/still_fade.jpg" alt=""></div>'}))
 
 pages.append(recipe_page(RECIPES[0]))
 pages.append(recipe_page(RECIPES[1]))
@@ -299,7 +298,7 @@ body {{ font-family: 'Jost', sans-serif; color: var(--ink); -webkit-print-color-
 .page {{ width: 8.125in; height: 10.25in; position: relative; overflow: hidden; background: var(--cream); break-after: page; }}
 /* live area: 0.125 bleed + 0.75 outer/0.875 gutter, safe on both sides */
 .live {{ position: absolute; top: .8in; bottom: 1in; left: .875in; right: .875in; }}
-.dark-bg {{ background: radial-gradient(ellipse at 50% 30%, #3A2618 0%, var(--choc) 62%, #140D09 100%); color: var(--sand); }}
+.dark-bg {{ background: var(--choc); color: var(--sand); }}
 .folio {{ position: absolute; bottom: .55in; display: flex; gap: 12px; align-items: baseline;
           font-family: 'Cinzel'; font-size: 7.5pt; letter-spacing: .22em; color: var(--soft); }}
 .folio b {{ font-size: 10.5pt; color: var(--pumpkin); letter-spacing: 0; }}
@@ -316,9 +315,7 @@ body {{ font-family: 'Jost', sans-serif; color: var(--ink); -webkit-print-color-
 .title {{ text-align: center; padding-top: 1.55in; }}
 .title .laurel .sprig {{ width: 1.1in; height: .37in; }}
 .t-the {{ font-family: 'Cinzel'; font-size: 22pt; letter-spacing: .3em; margin-top: 14px; }}
-.t-main {{ font-family: 'Cinzel'; font-size: 66pt; line-height: .98; letter-spacing: .02em; font-weight: 600;
-           background: linear-gradient(180deg, #D8A851 0%, #B07A2A 100%); -webkit-background-clip: text; background-clip: text;
-           -webkit-text-fill-color: transparent; margin-top: 4px; }}
+.t-main {{ font-family: 'Cinzel'; font-size: 66pt; line-height: .98; letter-spacing: .02em; font-weight: 600; color: #BC8733; margin-top: 4px; }}
 .t-cook {{ font-family: 'Cinzel'; font-size: 30pt; letter-spacing: .14em; margin-top: 4px; }}
 .t-sub {{ font-family: 'Cormorant'; font-style: italic; font-size: 17pt; line-height: 1.3; color: var(--soft); margin-top: 6px; }}
 .t-author {{ margin-top: 1.45in; }}
@@ -361,28 +358,28 @@ body {{ font-family: 'Jost', sans-serif; color: var(--ink); -webkit-print-color-
 .ch-list b {{ font-family: 'Cinzel'; color: var(--gold2); font-size: 11pt; }}
 .ch-photo {{ position: absolute; left: 0; right: 0; bottom: 0; height: 3.15in; }}
 .ch-photo img {{ width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }}
-.ch-photo::before {{ content: ''; position: absolute; inset: 0 0 auto 0; height: 1.1in; background: linear-gradient(#1A110C, rgba(26,17,12,0)); }}
+
 .ch-arch {{ width: 2.1in; height: 2.6in; margin: .3in auto 0; border-radius: 1.05in 1.05in 6px 6px; overflow: hidden;
             outline: 1px solid var(--gold); outline-offset: 6px; }}
 .ch-arch img {{ width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }}
 .with-arch .ch-list {{ margin-top: .35in; }}
 
 /* recipe template */
-.recipe .live {{ top: 3.62in; }}
-.r-photo {{ position: absolute; top: 0; left: 0; right: 0; height: 3.32in; overflow: hidden; border-bottom: 4px solid var(--gold); }}
+.recipe .live {{ top: 4.1in; }}
+.r-photo {{ position: absolute; top: 0; left: 0; right: 0; height: 3.84in; overflow: hidden; border-bottom: 4px solid var(--gold); }}
 .r-photo img {{ width: 100%; height: 100%; object-fit: cover; }}
 .r-head {{ text-align: center; }}
 .r-head .kicker .num {{ display: inline-block; border: 1px solid var(--pumpkin); border-radius: 50%; width: 22px; height: 22px;
                         line-height: 20px; letter-spacing: 0; margin-right: 6px; font-size: 7.5pt; }}
-.r-title {{ font-family: 'Cinzel'; font-size: 19pt; line-height: 1.1; margin-top: 6px; font-weight: 600; }}
+.r-title {{ font-family: 'Cinzel'; font-size: 19pt; line-height: 1.1; margin: 5px 0 7px; font-weight: 600; }}
 .recipe .rule {{ margin: 6px auto; width: 2in; }}
 .r-intro {{ font-family: 'Cormorant'; font-style: italic; font-size: 12.8pt; line-height: 1.36; color: var(--soft); max-width: 6.3in; margin: 0 auto; text-wrap: balance; }}
-.meta {{ display: grid; margin: 10px 0 12px; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }}
-.meta div {{ text-align: center; padding: 6px 0; }}
+.meta {{ display: grid; margin: 9px 0 11px; border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold); }}
+.meta div {{ display: flex; justify-content: center; align-items: baseline; gap: 6px; padding: 5px 0; }}
 .meta div + div {{ border-left: 1px solid #E6D3B0; }}
-.meta b {{ display: block; font-family: 'Cinzel'; font-size: 6.5pt; letter-spacing: .2em; color: var(--pumpkin); }}
+.meta b {{ font-family: 'Cinzel'; font-size: 6.5pt; letter-spacing: .2em; color: var(--pumpkin); }}
 .meta i {{ font-style: normal; font-family: 'Cormorant'; font-size: 12.5pt; font-weight: 600; }}
-.r-body {{ display: grid; grid-template-columns: 2.1in 1fr; gap: .28in; }}
+.r-body {{ display: grid; grid-template-columns: 2.45in 1fr; gap: .28in; align-items: start; }}
 .recipe h3 {{ font-family: 'Cinzel'; font-size: 12pt; letter-spacing: .12em; margin-bottom: 5px; color: var(--fig); font-weight: 600; }}
 .recipe ul {{ list-style: none; }}
 .recipe ul li {{ font-size: 9pt; line-height: 1.35; padding: 3.5px 0 3.5px 13px; position: relative; border-bottom: 1px dotted #DCC9AA; }}
