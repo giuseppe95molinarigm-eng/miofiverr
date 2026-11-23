@@ -89,7 +89,7 @@ body {{ position: relative; overflow: hidden; -webkit-print-color-adjust: exact;
 .laurel span {{ width: 6px; height: 6px; background: #C9963E; transform: rotate(45deg); }}
 .rule {{ display: block; height: 12px; margin: 12px auto; }}
 h1 {{ font-family: 'Cinzel'; font-weight: 600; font-size: 27pt; line-height: 1.15; color: #E2B865; letter-spacing: .03em; margin-top: 10px; }}
-.blurb {{ font-family: 'Cormorant'; font-size: 15pt; line-height: 1.42; color: #F1E4CC; max-width: 6.4in; margin: 0 auto; }}
+.blurb {{ font-family: 'Cormorant'; font-size: 15pt; line-height: 1.42; color: #F1E4CC; max-width: 6.5in; margin: 0 auto; text-wrap: balance; }}
 .blurb em {{ color: #E2B865; }}
 .photos {{ display: flex; justify-content: center; gap: .3in; margin-top: .38in; }}
 .photos figure {{ width: 1.95in; }}
@@ -102,13 +102,15 @@ h2 {{ font-family: 'Cinzel'; font-weight: 600; font-size: 11pt; letter-spacing: 
 .inside li::before {{ content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #C9963E; transform: rotate(45deg); }}
 
 .bio {{ left: {BLEED + 0.55}in; top: {BAR['y'] - 0.45:.3f}in; width: {BAR['x'] - BLEED - 0.55 - 0.3:.3f}in;
-        display: grid; grid-template-columns: .95in 1fr; gap: .2in; align-items: center;
+        display: grid; grid-template-columns: 1.1in 1fr; gap: .22in; align-items: center;
         border-top: 1px solid rgba(201,150,62,.55); padding-top: .2in; }}
 .mono {{ width: .95in; height: .95in; border-radius: 50%; border: 1.5px solid #C9963E; display: flex; align-items: center; justify-content: center;
          font-family: 'Cinzel'; font-weight: 600; font-size: 22pt; color: #E2B865; letter-spacing: .02em; position: relative; }}
+.portrait {{ width: 1.1in; height: 1.1in; border-radius: 50%; overflow: hidden; outline: 1.5px solid #C9963E; outline-offset: 4px; }}
+.portrait img {{ width: 100%; height: 100%; object-fit: cover; }}
 .mono::after {{ content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 1px solid rgba(201,150,62,.45); }}
 .bio h3 {{ font-family: 'Cinzel'; font-weight: 600; font-size: 9pt; letter-spacing: .26em; color: #E2B865; margin-bottom: 4px; }}
-.bio p {{ font-family: 'Cormorant'; font-size: 11.3pt; line-height: 1.36; color: #EADCC3; }}
+.bio p {{ font-family: 'Cormorant'; font-size: 11.3pt; line-height: 1.36; color: #EADCC3; text-wrap: pretty; }}
 .bio p b {{ font-weight: 500; color: #F6EBD8; }}
 .pub {{ left: {BAR['x']:.3f}in; width: {BAR['w']}in; top: {BAR['y'] - 0.62:.3f}in; text-align: center; }}
 .pub p {{ font-family: 'Cinzel'; font-weight: 500; font-size: 7.5pt; letter-spacing: .28em; color: #C9A46A; }}
@@ -142,13 +144,13 @@ h2 {{ font-family: 'Cinzel'; font-weight: 600; font-size: 11pt; letter-spacing: 
 </div>
 
 <div class="abs bio">
-  <div class="mono">LW</div>
+  <div class="portrait"><img src="{IMG}/author.jpg" alt=""></div>
   <div>
     <h3>About the Author</h3>
     <p><b>Lauren Whitmore</b> is a food stylist and recipe developer from Vermont, where
     autumn is the longest and most delicious season of the year. She has spent more than a
     decade styling harvest tables, brunches and holiday menus, and believes every gathering
-    deserves one dish people talk about long after the plates are cleared.</p>
+    deserves one dish everyone remembers.</p>
   </div>
 </div>
 <div class="abs pub"><p>Hearth &amp; Harvest Press</p><small>COOKING / SEASONAL</small></div>
