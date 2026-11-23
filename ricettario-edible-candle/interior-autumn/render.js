@@ -11,7 +11,7 @@ const fs = require('fs');
   await page.goto(html, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   await page.pdf({
-    path: path.join(root, 'build', 'edible-candle-cookbook-6-pages.pdf'),
+    path: path.join(root, 'build', 'edible-candle-cookbook-interior.pdf'),
     width: '8.125in', height: '10.25in', printBackground: true, preferCSSPageSize: true,
   });
 
