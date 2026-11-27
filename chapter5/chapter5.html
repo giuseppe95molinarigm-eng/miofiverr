@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Chapter 5 – Week 1: Gentle Beginnings</title>
+<style>
+@page { size: 8.5in 11in; margin: 0 }
+:root{ --gold:#B8801A; --gold-l:#E9C46A; --ink:#1F2A1E; --text:#222; --cream:#FBF6EA; --green:#2F4A2E; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Bitstream Charter','Charter',Georgia,serif;color:var(--text);font-size:14.5pt;line-height:1.42}
+.page{width:8.5in;height:11in;position:relative;overflow:hidden;page-break-after:always;padding:0.85in 0.8in 0.95in;background:#fff;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+/* running header + footer */
+.rh{position:absolute;top:0.42in;left:0.8in;right:0.8in;display:flex;justify-content:space-between;font-family:Inter,sans-serif;font-size:8.5pt;letter-spacing:.16em;text-transform:uppercase;color:#8a7a55;border-bottom:1px solid #e6d9b5;padding-bottom:7px}
+.pn{position:absolute;bottom:0.42in;left:0;right:0;text-align:center;font-family:'Bitstream Charter',serif;font-size:12pt;color:var(--green)}
+.pn:before,.pn:after{content:"◆";color:var(--gold);font-size:7pt;margin:0 12px;vertical-align:2px}
+/* chapter opener */
+.opener{background:var(--ink);color:#fff;margin:-0.85in -0.8in 0.22in;padding:0.66in 0.8in 0.22in;flex:none;position:relative}
+.opener:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#8a5a0c,#f0cd6e,#b8801a,#f0cd6e,#8a5a0c)}
+.opener .kicker{font-family:Inter,sans-serif;font-weight:600;font-size:11pt;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-l);margin-bottom:6px}
+.opener h1{font-size:31pt;line-height:1.08;font-weight:700;letter-spacing:-.2px}
+.opener h1 span{color:var(--gold-l)}
+.goal{flex:none;border-left:5px solid var(--gold);background:var(--cream);padding:8px 16px;margin-bottom:0.16in;font-size:14pt;line-height:1.38}
+.goal b{font-family:Inter,sans-serif;font-size:9.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:2px}
+/* day heading */
+.day{flex:none;display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.badge{flex:none;width:0.74in;height:0.74in;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f6dc8c,#c18a1e 70%,#9a6a10);color:var(--ink);text-align:center;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--gold);display:flex;flex-direction:column;justify-content:center;font-family:Inter,sans-serif}
+.badge small{font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;font-weight:700;line-height:1}
+.badge strong{font-size:27pt;line-height:1;font-weight:800;font-family:'Bitstream Charter',serif}
+.day h2{font-size:24pt;line-height:1.12;color:var(--ink);font-weight:700}
+.rule{flex:none;height:2px;background:linear-gradient(90deg,var(--gold),rgba(184,128,26,0));margin:6px 0 12px}
+.purpose{font-size:15pt;margin-bottom:12px;flex:none}
+.purpose b{color:var(--gold);font-family:Inter,sans-serif;font-size:10pt;letter-spacing:.14em;text-transform:uppercase;margin-right:6px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0.22in;margin-bottom:12px;align-items:start;flex:none}
+.cols.single{grid-template-columns:1fr}
+.card{border:1.5px solid #e3d3a5;border-radius:10px;overflow:hidden;background:#fff}
+.card h3{font-family:Inter,sans-serif;font-size:10.5pt;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding:7px 14px;display:flex;align-items:center;gap:8px}
+.card.st h3{background:var(--green)}
+.card.se h3{background:#8a5a0c}
+.card ol,.card ul{list-style:none;counter-reset:s;padding:10px 14px 8px}
+.card li{counter-increment:s;position:relative;padding-left:32px;margin-bottom:7px;font-size:13.5pt;line-height:1.36}
+.card ol li:before{content:counter(s);position:absolute;left:0;top:1px;width:23px;height:23px;border-radius:50%;background:var(--cream);border:1.5px solid var(--gold);color:var(--ink);font-family:Inter,sans-serif;font-weight:700;font-size:10.5pt;text-align:center;line-height:20px}
+.card ul li:before{content:"◆";position:absolute;left:5px;top:0;color:var(--gold);font-size:11pt}
+.notes{flex:none;background:var(--cream);border-radius:10px;padding:12px 18px 12px 64px;position:relative;margin-bottom:14px;border:1.5px solid #ecdfba}
+.notes:before{content:"✦";position:absolute;left:16px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:var(--gold);color:#fff;font-size:18pt;text-align:center;line-height:36px}
+.notes b{font-family:Inter,sans-serif;font-size:9.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block}
+.notes p{font-style:italic;font-size:14pt;line-height:1.38}
+.fig{border:1.5px solid #e3d3a5;border-radius:12px;background:#fff;display:flex;justify-content:center;align-items:center;padding:14px;flex:1;min-height:0;overflow:hidden}
+.fig img{display:block;max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.cap{font-family:Inter,sans-serif;font-size:8.5pt;letter-spacing:.12em;text-transform:uppercase;color:#8a7a55;text-align:center;margin-top:6px}
+.cols.two{align-items:stretch;flex:1;min-height:0}
+.rcol{display:flex;flex-direction:column;gap:12px;min-height:0}
+.rcol .card{flex:none}
+.rcol .fig{flex:1;min-height:0}
+.tight .card li{font-size:13pt;line-height:1.3;margin-bottom:5px}
+.tight .purpose{font-size:14pt;margin-bottom:10px}
+.tight .notes p{font-size:13pt;line-height:1.32}
+.tight .notes{padding-top:9px;padding-bottom:9px}
+.tight .cols{margin-bottom:10px}
+.tight .goal{font-size:13pt;line-height:1.32}
+.tight .rule{margin:4px 0 8px}
+.tight .day{margin-bottom:4px}
+</style></head><body>
+
+<!-- PAGE 1 -->
+<section class="page tight">
+  <div class="rh"><span>Tai Chi for Seniors Over 60</span><span>Week 1 · Gentle Beginnings</span></div>
+  <header class="opener">
+    <div class="kicker">Chapter 5</div>
+    <h1>Week 1 – <span>Gentle Beginnings</span></h1>
+  </header>
+  <div class="goal"><b>Goal of the week</b>Learn the foundations of Tai Chi—posture, breathing, and a few simple movements. By the end of this week, you will have your very first 10-minute routine.</div>
+  <div class="day"><div class="badge"><small>Day</small><strong>1</strong></div><h2>Breathing and Posture Basics</h2></div>
+  <div class="rule"></div>
+  <p class="purpose"><b>Purpose</b>Build awareness of posture and learn how to coordinate breath with gentle arm movements.</p>
+  <div class="cols two">
+    <div class="card st"><h3>Standing Version</h3><ol>
+      <li>Stand with feet shoulder-width apart.</li>
+      <li>Keep knees slightly bent, arms resting naturally at your sides.</li>
+      <li>Inhale gently through the nose as you raise both arms in front of you, palms facing down, until they reach shoulder height.</li>
+      <li>Exhale softly through the mouth as you lower the arms back to your sides.</li>
+      <li>Repeat 5–10 times, moving as slowly as your breath.</li>
+</ol></div>
+    <div class="rcol"><div class="card se"><h3>Seated Version</h3><ol>
+      <li>Sit upright on a sturdy chair, feet flat on the floor.</li>
+      <li>Inhale as you raise your arms to shoulder height.</li>
+      <li>Exhale as you lower them back down.</li>
+      <li>Repeat 5–10 times.</li>
+</ol></div>
+      <div class="fig" style="min-height:1.5in"><img src="day1c.png"></div></div>
+  </div>
+  <div class="notes"><b>Practice Notes</b><p>This may feel very simple, but it is the foundation of Tai Chi. Focus on calm breathing and a relaxed posture. Imagine you are gently lifting and lowering your arms through warm water.</p></div>
+  <div class="pn">32</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page tight">
+  <div class="rh"><span>Tai Chi for Seniors Over 60</span><span>Week 1 · Gentle Beginnings</span></div>
+  <div class="day"><div class="badge"><small>Day</small><strong>2</strong></div><h2>Wave Hands Like Clouds <span style="color:var(--gold)">(Basic Form)</span></h2></div>
+  <div class="rule"></div>
+  <p class="purpose"><b>Purpose</b>Introduce gentle coordination of arms and body, while shifting weight naturally.</p>
+  <div class="cols two">
+    <div class="card st"><h3>Standing Version</h3><ol>
+      <li>Stand with feet shoulder-width apart, knees slightly bent.</li>
+      <li>Shift weight gently to the left foot.</li>
+      <li>Raise the left hand to shoulder height, palm facing inward.</li>
+      <li>Slowly move the left hand across the body, as if brushing through a cloud.</li>
+      <li>At the same time, the right hand lowers at your side, palm facing outward.</li>
+      <li>Shift weight to the right foot and switch hands.</li>
+      <li>Continue side to side for 6–8 cycles.</li>
+</ol></div>
+    <div class="rcol"><div class="card se"><h3>Seated Version</h3><ol>
+      <li>Sit upright with feet flat.</li>
+      <li>Raise the left hand to shoulder height, sweeping across your body.</li>
+      <li>Lower it as the right hand rises.</li>
+      <li>Continue side to side, keeping a gentle rhythm.</li>
+</ol></div>
+      <div class="fig" style="min-height:1in"><img src="day2c.png"></div></div>
+  </div>
+  <div class="notes"><b>Practice Notes</b><p>Keep the movements soft and flowing. Imagine you are painting the air in front of you, each stroke smooth and graceful.</p></div>
+  <div class="pn">33</div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+  <div class="rh"><span>Tai Chi for Seniors Over 60</span><span>Week 1 · Gentle Beginnings</span></div>
+  <div class="day"><div class="badge"><small>Day</small><strong>3</strong></div><h2>Shoulder and Arm Release</h2></div>
+  <div class="rule"></div>
+  <p class="purpose"><b>Purpose</b>Loosen stiff shoulders, relieve tension, and improve circulation.</p>
+  <div class="cols">
+    <div class="card st"><h3>Standing Version</h3><ol>
+      <li>Stand tall with feet apart.</li>
+      <li>Roll both shoulders backward in slow circles, 6 times.</li>
+      <li>Reverse direction, rolling forward 6 times.</li>
+      <li>Raise arms to the side as you inhale, lower them as you exhale.</li></ol></div>
+    <div class="card se"><h3>Seated Version</h3><ol>
+      <li>Sit upright.</li>
+      <li>Perform shoulder rolls forward and backward.</li>
+      <li>Add gentle arm raises, in time with your breathing.</li></ol></div>
+  </div>
+  <div class="notes"><b>Practice Notes</b><p>Release any stiffness. Imagine tension melting from your shoulders with each roll.</p></div>
+  <div class="fig"><img src="day3c.png"></div>
+  <div class="pn">34</div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+  <div class="rh"><span>Tai Chi for Seniors Over 60</span><span>Week 1 · Gentle Beginnings</span></div>
+  <div class="day"><div class="badge"><small>Day</small><strong>4</strong></div><h2>Opening and Closing Hands</h2></div>
+  <div class="rule"></div>
+  <p class="purpose"><b>Purpose</b>Improve coordination and relaxation through simple hand expansion and contraction.</p>
+  <div class="cols">
+    <div class="card st"><h3>Standing Version</h3><ol>
+      <li>Stand with arms bent in front of the chest, palms facing each other.</li>
+      <li>Inhale as you slowly open the hands outward, widening the space.</li>
+      <li>Exhale as you bring the hands back together.</li>
+      <li>Repeat 10 times.</li></ol></div>
+    <div class="card se"><h3>Seated Version</h3><ul>
+      <li>Same as standing, performed while seated upright.</li></ul></div>
+  </div>
+  <div class="notes"><b>Practice Notes</b><p>Imagine holding a soft ball of energy between your palms, expanding and contracting with each breath.</p></div>
+  <div class="fig"><img src="day4c.png"></div>
+  <div class="pn">35</div>
+</section>
+</body></html>
